@@ -1,492 +1,607 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Principal -->
+    <title>Kenyi Galindo Martinez | Backend Developer</title>
+    <meta name="description"
+        content="Portfolio de Kenyi Galindo Martinez, Backend Developer especializado en Python, FastAPI, APIs REST y bases de datos. Disponible para prácticas, proyectos freelance y oportunidades Junior.">
+    <meta name="keywords"
+        content="Kenyi Galindo Martinez, Backend Developer, Python, FastAPI, API REST, PostgreSQL, SQLite, MongoDB, Laravel, PHP, Go, Gin, Express, JavaScript, TypeScript, desarrollo backend, portafolio, ingeniería de software">
+    <meta name="author" content="Kenyi Galindo Martinez">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kenyigm.github.io/">
+
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
-    <title>Mi Pagina Web</title>
 
     <style>
-        * {
-            font-family: "Roboto", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-        }
-
         html {
             scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
         }
 
-        .montserrat-font {
-            font-family: "Montserrat", sans-serif;
+        body {
+            background: radial-gradient(circle at top, #152238, #0B0F19);
+        }
+
+        .jet-mono {
+            font-family: "JetBrains Mono", monospace;
             font-optical-sizing: auto;
-            font-weight: 400;
+            font-weight: 700;
             font-style: normal;
         }
 
-        .roboto-font {
-            font-family: "Roboto", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
+        /* Accesibilidad: skip link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 9999;
+            background: #00E5FF;
+            color: #0B0F19;
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: top 0.2s;
         }
 
-        .scroller-sky {
-            overflow-y: scroll;
-            scrollbar-color: #20FFFF #0F0F0F;
+        .skip-link:focus {
+            top: 0;
         }
 
+        /* Accesibilidad: sr-only (solo para lectores de pantalla) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Accesibilidad: indicador de foco visible */
+        :focus-visible {
+            outline: 2px solid #00E5FF;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
-<body class="min-h-screen text-white bg-[#0B0B0B]">
-    <header class="p-4 border-[#7A7A7A]/20 border-b">
-        <nav class="flex justify-center">
-            <ul class="flex gap-8 items-center text-white">
-                <li>
-                    <a href="#" class="text-white hover:text-[#39FF14] transition">
-                        <i class="bi bi-house-door-fill"></i>
-                        Inicio
-                    </a>
-                </li>
-                <li>
-                    <a href="#habilidades" class="text-white hover:text-[#39FF14] transition">
-                        <i class="bi bi-tools"></i>
-                        Habilidades
-                    </a>
-                </li>
-                <li><a href="#proyectos" class="text-white hover:text-[#39FF14] transition">
-                        <i class="bi bi-briefcase-fill"></i>
-                        Proyectos
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<body class="text-white jet-mono antialiased">
+    <!-- Saltar al contenido principal (accesibilidad teclado) -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header>
+        <div class="relative w-[100%] mx-auto">
+            <nav aria-label="Navegación principal"
+                class="fixed top-0 left-0 w-full z-50 flex justify-center items-center h-20 transition-all duration-300 bg-[#131A26]/70 backdrop-blur-xl border-b border-white/10">
+                <ul class="flex flex-wrap text-sm md:text-xl text-white gap-3 md:gap-5 lg:gap-8 p-4" role="list">
+                    <li>
+                        <a href="#" class="hover:text-[#00E5FF]" aria-label="Ir al inicio">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#sobre-mi" class="hover:text-[#00E5FF]" aria-label="Ir a Sobre mí">Sobre mi</a>
+                    </li>
+                    <li>
+                        <a href="#experiencia" class="hover:text-[#00E5FF]"
+                            aria-label="Ir a Experiencia">Experiencia</a>
+                    </li>
+                    <li>
+                        <a href="#tecnologia" class="hover:text-[#00E5FF]" aria-label="Ir a Tecnología">Tecnologia</a>
+                    </li>
+                    <li>
+                        <a href="#proyectos" class="hover:text-[#00E5FF]" aria-label="Ir a Proyectos">Proyectos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container mx-auto p-4" id="inicio">
-        <section class="p-4 border-[#7A7A7A]/20 border-b">
-            <article class="border-[#7A7A7A]/20 border-b">
-                <div class="mb-8 text-center border-[#7A7A7A]/20 border-b">
-                    <h1 class="text-4xl font-bold text-[#EAEAEA]">Kenyi Galindo Martinez</h1>
-                    <h2 class="text-ml mb-4 text-[#EAEAEA]">Backend Developer</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="block mx-auto mb-4 p-4">
-                        <img src="./img/panda.jpeg" alt="Imagen de Kenyi Galindo Martinez"
-                            class="w-90 h-90 shadow-xl/20 shadow-cyan-500/50" />
+    <main id="contenido-principal">
+        <!-- Inicio -->
+        <section class="relative w-[100%] mx-auto" aria-labelledby="titulo-inicio">
+            <article class="flex items-center justify-center min-h-screen py-32">
+                <div class="flex w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-x-10">
+                    <div class="flex items-center justify-center lg:mt-0">
+                        <div class="relative flex items-center justify-center">
+                            <div class="absolute w-full h-full bg-cyan-500 blur-3xl opacity-30 rounded-full"
+                                aria-hidden="true"></div>
+                            <img src="/img/panda.jpeg" alt="Foto de perfil de Kenyi Galindo Martinez, Backend Developer"
+                                class="rounded-full w-full h-full object-cover" width="400" height="400"
+                                loading="eager">
+                        </div>
                     </div>
-                    <div class="p-4">
-                        <div class="pb-4 mb-4 text-center border-[#7A7A7A]/20 border-b">
-                            <p class="text-lg text-[#EAEAEA]">
-                                Soy un programador apasionado por el codigo y la tecnologia. Mi ambicion es resolver
-                                problemas
-                                tecnologicos y contribuir al desarrollo de software que mejoren la vida de las
-                                personas.
+                    <div class="flex items-center justify-center mt-5 lg:mt-0">
+                        <div class="relative flex flex-col items-center justify-center">
+                            <div class="mb-2">
+                                <h1 id="titulo-inicio" class="text-3xl lg:text-5xl text-center">Soy <span
+                                        class="text-[#00E5FF]">Kenyi
+                                        Galindo Martinez</span></h1>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-2xl lg:text-3xl text-[#9CA3AF] text-center" role="doc-subtitle">Backend
+                                    Developer</p>
+                                <p class="text-lg lg:text-xl text-white text-center pt-5">
+                                    Diseño APIs escalables, bases de datos y arquitectura para aplicaciones modernas.
+                                </p>
+                                <p class="text-lg lg:text-xl text-[#00E5FF] text-center pt-5">
+                                    Disponible para prácticas, proyectos freelance y oportunidades Junior.
+                                </p>
+                            </div>
+                            <div class="mb-2 flex gap-6 mt-10 flex flex-wrap justify-center" role="list"
+                                aria-label="Redes sociales y CV">
+                                <a href="https://github.com/KenyiGM"
+                                    class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-6 py-3 flex items-center justify-center gap-x-2"
+                                    aria-label="Ver perfil de Kenyi en GitHub (abre en nueva pestaña)" target="_blank"
+                                    rel="noopener noreferrer" role="listitem">
+                                    <span class="text-sm" aria-hidden="true">Github</span>
+                                    <i class="bi bi-github text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/kenyi-alexander-galindo-martinez/"
+                                    class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-6 py-3 flex items-center justify-center gap-x-2"
+                                    aria-label="Ver perfil de Kenyi en LinkedIn (abre en nueva pestaña)" target="_blank"
+                                    rel="noopener noreferrer" role="listitem">
+                                    <span class="text-sm" aria-hidden="true">Linkedin</span>
+                                    <i class="bi bi-linkedin text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                </a>
+                                <a href="#"
+                                    class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-6 py-3 flex items-center justify-center gap-x-2"
+                                    aria-label="Descargar currículum vitae de Kenyi Galindo Martinez" role="listitem">
+                                    <span class="text-sm text-center" aria-hidden="true">Descargar CV</span>
+                                    <i class="bi bi-download text-xl rounded-full" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sobre mi -->
+        <section id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+            <div class="relative w-[100%] mx-auto">
+                <article class="flex min-h-screen items-center justify-center">
+                    <div class="w-full p-10">
+                        <h2 id="titulo-sobre-mi" class="text-3xl lg:text-5xl mb-2 text-center">Sobre mi</h2>
+                        <hr class="w-[80%] mx-auto my-4 border-t-2 border-[#00E5FF] mt-10">
+                        <div class="w-[80%] mx-auto mt-10 flex flex-col items-center justify-center gap-y-10">
+                            <p class="text-lg lg:text-2xl text-[#9CA3AF] text-justify">
+                                Desde muy joven me han apasionado la lógica, la resolución de problemas y la
+                                <span class="text-[#00E5FF]">tecnología</span>.
+                                Mi primer objetivo fue crear mi propio
+                                <span class="text-[#00E5FF]">videojuego</span>
+                                y, con el tiempo, ese interés evolucionó hacia el desarrollo de mi propia
+                                <span class="text-[#00E5FF]">inteligencia artificial</span>.
+                            </p>
+                            <p class="text-lg lg:text-2xl text-[#9CA3AF] text-justify">
+                                Actualmente he culminado la carrera técnica de
+                                <span class="text-[#00E5FF]">Computación e Informática</span>
+                                y tengo como objetivo convalidar mis estudios en una
+                                universidad para continuar la carrera de
+                                <span class="text-[#00E5FF]">Ingeniería de Software</span>.
+                            </p>
+                            <p class="text-lg lg:text-2xl text-[#9CA3AF] text-justify">
+                                Mi meta es convertirme en un
+                                <span class="text-[#00E5FF]">Ingeniero de Software</span>
+                                capaz de diseñar y desarrollar soluciones
+                                tecnológicas completas, escalables y eficientes, aplicando buenas prácticas de
+                                ingeniería y manteniendo un aprendizaje continuo.
                             </p>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="mb-4 text-center block">
-                                <h3 class="text-xl font-bold mb-6 text-[#EAEAEA]">Redes</h3>
-                                <ul class="flex flex-col gap-4 justify-center">
-                                    <li class="mb-4">
-                                        <a href="https://github.com/KenyiGM" target="_blank"
-                                            class="text-[#EAEAEA]/80 hover:text-[#00F0FF]/80">
-                                            <i class="bi bi-github text-2xl pl-2"></i>
-                                            GitHub
-                                        </a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="https://www.linkedin.com/in/kenyi-alexander-galindo-martinez" target="_blank" 
-                                            class="text-[#EAEAEA]/80 hover:text-[#00F0FF]/80">
-                                            <i class="bi bi-linkedin text-2xl pl-4"></i>
-                                            LinkedIn
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mb-4 text-center block">
-                                <h3 class="text-xl font-bold mb-4 text-[#EAEAEA]">Contacto</h3>
-                                <div class="flex flex-col gap-4 justify-center">
-                                    <p class="mb-4 text-[#EAEAEA]/80">
-                                        <i class="bi bi-envelope-fill"></i>
-                                        Correo :
-                                        <br>
-                                        sunted351@gmail.com
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </article>
-            <article class="hover:scale-105 transition-transform">
-                <section class="p-4" id="habilidades">
-                    <h2 class="text-2xl font-bold mb-4 text-[#EAEAEA]">Habilidades</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3">
-                        <div class="mb-4 p-4">
-                            <h3 class="text-xl font-bold mb-4 text-[#EAEAEA]">Lenguajes de Programacion :</h3>
-                            <div class="flex gap-4 items-center">
-                                <ul class="flex flex-col gap-6 w-1/3">
-                                    <li>
-                                        Python :
-                                    </li>
-                                    <li>
-                                        JavaScript :
-                                    </li>
-                                </ul>
-                                <ul class="flex flex-col gap-4 w-1/2">
-                                    <li>
-                                        <p class="text-sm ">Intermedio</p>
-                                        <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 h-3 rounded-full">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <p class="text-sm ">Basico</p>
-                                        <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/4 h-3 rounded-full">
-                                            </div>
-                                        </div>
-                                    </li>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experiencia -->
+        <section id="experiencia" aria-labelledby="titulo-experiencia">
+            <div class="relative w-full mx-auto">
+                <article class="flex py-32 items-center justify-center">
+                    <div class="w-full p-10">
+                        <h2 id="titulo-experiencia" class="text-3xl lg:text-5xl mb-4 text-center">Experiencia</h2>
+                        <hr class=" mx-auto my-4 border-t-2 border-[#00E5FF] mt-8">
+                        <p class="text-lg lg:text-2xl text-[#9CA3AF] text-center mb-8">
+                            Experiencia profesional y proyectos en los que he participado.
+                        </p>
+
+                        <div class="bg-[#131A26] rounded-2xl p-8 border border-white/10 grid grid-cols-1 lg:grid-cols-3 gap-y-10"
+                            role="region" aria-label="Experiencia en Consigue Ventas">
+                            <div class="mb-2 p-2">
+                                <h3 class="text-2xl lg:text-3xl text-[#00E5FF] mb-2">Practicante de Desarrollo Backend
+                                </h3>
+                                <h4 class="text-xl lg:text-2xl text-white mb-2">Consigue Ventas</h4>
+                                <p class="text-lg lg:text-xl text-[#9CA3AF] mb-2">
+                                    <time datetime="2022-07/2022-11">Jul 2022 - Nov 2022</time>
+                                </p>
+                            </div>
+
+                            <div class="m-2 p-2">
+                                <h4 id="responsabilidades-label" class="text-xl lg:text-2xl text-white mb-2">
+                                    Responsabilidades</h4>
+                                <ul class="list-disc list-inside mt-4 ml-2" aria-labelledby="responsabilidades-label">
+                                    <li class="text-md text-[#9CA3AF] mb-2">Desarrollo de funcionalidades para el
+                                        backend
+                                        del sistema web Marketplace.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Diseño e implementación de APIs REST para la
+                                        comunicación entre servicios.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Desarrollo y optimización de consultas a
+                                        bases
+                                        de datos.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Control de versiones del código utilizando
+                                        Git.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Elaboración de documentación técnica y
+                                        mantenimiento del código.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Desarrollo de pruebas unitarias para
+                                        garantizar
+                                        la calidad del software.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Aplicación de buenas prácticas de
+                                        programación y
+                                        principios de código limpio.</li>
+                                    <li class="text-md text-[#9CA3AF] mb-2">Trabajo colaborativo bajo metodología Agile
+                                        junto al equipo de desarrollo.</li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="mb-4 p-4">
-                            <h3 class="text-xl font-bold mb-4 text-[#EAEAEA]">Backend :</h3>
-                            <div class="flex gap-4 items-center">
-                                <ul class="flex flex-col gap-6 w-1/3">
-                                    <li>FastAPI : </li>
-                                    <li>ExpressJS : </li>
-                                </ul>
-                                <ul class="flex flex-col gap-4 w-1/2">
-                                    <li>
-                                        <p class="text-sm ">Intermedio</p>
-                                        <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/2 h-3 rounded-full">
-                                            </div>
-                                        </div>
+
+                            <div class="mb-2 p-2">
+                                <h4 id="tech-exp-label" class="text-xl lg:text-2xl text-white mb-2">Tecnologias
+                                    utilizadas</h4>
+                                <ul class="flex flex-wrap gap-3 mt-4 ml-2" aria-labelledby="tech-exp-label">
+                                    <li class="px-4 py-2 rounded-full border border-[#00E5FF] text-[#00E5FF]">PHP</li>
+                                    <li class="px-4 py-2 rounded-full border border-[#00E5FF] text-[#00E5FF]">Laravel
                                     </li>
-                                    <li>
-                                        <p class="text-sm ">Basico</p>
-                                        <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/4 h-3 rounded-full">
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mb-4 p-4">
-                            <h3 class="text-xl font-bold mb-4 text-[#EAEAEA]">Frontend :</h3>
-                            <div class="flex gap-4 items-center">
-                                <ul class="flex flex-col gap-6 w-1/3">
-                                    <li>ReactJS : </li>
-                                    <li>Tailwind : </li>
-                                </ul>
-                                <ul class="flex flex-col gap-4 w-1/2">
-                                    <li>
-                                        <p class="text-sm ">Basico</p>
-                                        <div
-                                            class="barra-principal w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/4 h-3 rounded-full">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <p class="text-sm ">Basico</p>
-                                        <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                            <div class="bg-gradient-to-r from-cyan-500 to-green-500 w-1/4 h-3 rounded-full">
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <li class="px-4 py-2 rounded-full border border-[#00E5FF] text-[#00E5FF]">MySQL</li>
+                                    <li class="px-4 py-2 rounded-full border border-[#00E5FF] text-[#00E5FF]">Git</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </section>
-            </article>
+                </article>
+            </div>
         </section>
-        <section>
-            <article id="proyectos">
-                <div class="p-4">
-                    <h2 class="text-2xl font-bold mb-2 text-[#EAEAEA]">Proyectos </h2>
-                </div>
-                <div class="p-2">
-                    <ul class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
-                        <li>
-                            <div class="bg-[#0F0F0F] border-cyan-400/70 border-2 p-6 rounded-lg h-100" id="problema-1">
-                                <h4 class="text-lg font-bold mb-4 text-cyan-300">Problema 1</h4>
-                                <div class="h-70 scroller-sky">
-                                    <p class="text-[#EAEAEA]/90">
-                                        Una empresa dedicada a la venta de productos al por menor necesita un
-                                        sistema que permita registrar cada pedido realizado por sus clientes.
-                                    </p>
-                                    <ul class="list-disc marker:text-cyan-400 p-4">
-                                        <li>
-                                            <p class="mt-2 text-[#EAEAEA]/80">
-                                                La gerencia ha solicitado que el sistema pueda calcular el monto
-                                                total a
-                                                pagar por cada pedido.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                En caso de que un cliente adquiera una cantidad
-                                                considerable de un mismo producto, se le aplique automáticamente un
-                                                descuento especial.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                Además, al final de la jornada, el sistema debe generar un resumen
-                                                con el
-                                                total de ventas realizadas durante el día.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
+
+        <!-- Tecnologia -->
+        <section id="tecnologia" aria-labelledby="titulo-tecnologia">
+            <div class="relative w-[100%] mx-auto">
+                <article class="flex py-32 items-center justify-center">
+                    <div class="w-full p-10">
+                        <h2 id="titulo-tecnologia" class="text-3xl lg:text-5xl mb-2 text-center">Tecnologia</h2>
+                        <hr class=" mx-auto my-4 border-t-2 border-[#00E5FF] mt-8 w-[80%]">
+                        <div class="flex flex-wrap justify-center gap-8 mt-10" role="list"
+                            aria-label="Leyenda de niveles de uso">
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#00E5FF]" aria-hidden="true"></span>
+                                <p>Uso Frecuente</p>
                             </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#0F0F0F] border-[#39FF14]/70 border-2 p-4 rounded-lg h-100" id="solucion-1">
-                                <h4 class="text-lg font-bold mb-4 text-[#39FF14]/80">Solucion 1</h4>
-
-                                <div>
-                                    <p>
-                                        Descripcion:
-                                    </p>
-                                    <p class="text-[#EAEAEA]/80 p-4">
-                                        Un sistema de pedidos que permite registrar cada pedido y ver resumen
-                                        de ventas.
-                                        Desarrollo en API REST (Proximante en web).
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        Tecnologias:
-                                    </p>
-                                    <div class="flex">
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M535.8 264.5C528.1 233.6 513.5 210.3 482.4 210.3L442.3 210.3L442.3 257.7C442.3 294.5 411.1 325.5 375.5 325.5L268.7 325.5C239.5 325.5 215.3 350.5 215.3 379.8L215.3 481.6C215.3 510.6 240.5 527.6 268.7 535.9C302.5 545.8 335 547.6 375.5 535.9C402.4 528.1 428.9 512.4 428.9 481.6L428.9 440.9L322.2 440.9L322.2 427.3L482.4 427.3C513.5 427.3 525 405.6 535.8 373.1C547 339.6 546.5 307.4 535.8 264.5zM382.2 508.7C374.6 509.2 367.3 505.5 363.3 499C359.4 492.4 359.4 484.3 363.3 477.7C367.3 471.2 374.6 467.5 382.2 468C389.8 467.5 397.1 471.2 401.1 477.7C405 484.3 405 492.4 401.1 499C397.1 505.5 389.8 509.2 382.2 508.7zM263.8 312.1L370.6 312.1C400.3 312.1 424 287.6 424 257.8L424 155.9C424 126.9 399.6 105.2 370.6 100.3C334.8 94.4 295.9 94.7 263.8 100.4C218.6 108.4 210.4 125.1 210.4 156L210.4 196.7L317.3 196.7L317.3 210.3L170.3 210.3C139.2 210.3 112 229 103.5 264.5C93.7 305.2 93.3 330.6 103.5 373.1C111.1 404.7 129.2 427.3 160.3 427.3L197 427.3L197 378.5C197 343.2 227.5 312.1 263.8 312.1zM257.2 128.7C268.5 128.7 277.6 137.8 277.6 149.1C277.6 160.4 268.5 169.5 257.2 169.5C245.9 169.5 236.8 160.4 236.8 149.1C236.8 137.8 245.9 128.7 257.2 128.7z" />
-                                            </svg>
-                                            Python
-                                        </p>
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M544 269.8C529.2 279.6 512.2 287.5 494.5 293.8C447.5 310.6 385.8 320 320 320C254.2 320 192.4 310.5 145.5 293.8C127.9 287.5 110.8 279.6 96 269.8L96 352C96 396.2 196.3 432 320 432C443.7 432 544 396.2 544 352L544 269.8zM544 192L544 144C544 99.8 443.7 64 320 64C196.3 64 96 99.8 96 144L96 192C96 236.2 196.3 272 320 272C443.7 272 544 236.2 544 192zM494.5 453.8C447.6 470.5 385.9 480 320 480C254.1 480 192.4 470.5 145.5 453.8C127.9 447.5 110.8 439.6 96 429.8L96 496C96 540.2 196.3 576 320 576C443.7 576 544 540.2 544 496L544 429.8C529.2 439.6 512.2 447.5 494.5 453.8z" />
-                                            </svg>
-                                            SQLite
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <a href="https://github.com/KenyiGM/sistema_pedidos" target="_blank" class="flex">
-                                        <span class="underline text-lg">Enlace a GitHub</span>
-                                        <i class="bi bi-box-arrow-up-right ml-2"></i>
-                                    </a>
-                                </div>
-
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#8B5CF6]" aria-hidden="true"></span>
+                                <p>Uso Ocasional</p>
                             </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#0F0F0F] border-cyan-400/70 border-2 p-6 rounded-lg h-100" id="problema-2">
-                                <h4 class="text-lg font-bold mb-4 text-cyan-300">Problema 2</h4>
-                                <div class="scroller-sky h-70">
-                                    <p class="text-[#EAEAEA]/90">
-                                        El departamento de recursos humanos requiere un sistema para llevar el
-                                        control de asistencia de sus trabajadores.
-                                    </p>
-                                    <ul class="list-disc marker:text-cyan-400 p-4">
-                                        <li>
-                                            <p class="mt-2 text-[#EAEAEA]/80">
-                                                El sistema debe registrar la hora de entrada y la hora de salida de
-                                                cada
-                                                empleado, con el fin de calcular el total de horas trabajadas en la
-                                                jornada.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                La empresa establece que la jornada estándar es de 8 horas, pero si
-                                                un
-                                                trabajador excede ese tiempo, las horas adicionales deben
-                                                considerarse
-                                                como
-                                                horas extra y pagarse con un recargo.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                La gerencia necesita que el sistema genere un reporte diario con
-                                                esta
-                                                información para cada trabajador.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#FF2E88]" aria-hidden="true"></span>
+                                <p>En Aprendizaje</p>
                             </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#0F0F0F] border-[#39FF14]/70 border-2 p-4 rounded-lg h-100" id="solucion-2">
-                                <h4 class="text-lg font-bold mb-4 text-[#39FF14]/80">Solucion 2</h4>
-                                <div>
-                                    <p>
-                                        Descripcion:
-                                    </p>
-                                    <p class="text-[#EAEAEA]/80 p-4">
-                                        Un sistema de asistencia que permite registrar la hora de entrada y
-                                        salida de cada empleado y calcular el total de horas trabajadas en la jornada.
-                                        Desarrollo en API REST (Proximante en web).
-                                    </p>
-                                </div>
+                        </div>
 
-                                <div>
-                                    <p>
-                                        Tecnologias:
-                                    </p>
-                                    <div class="flex">
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M535.8 264.5C528.1 233.6 513.5 210.3 482.4 210.3L442.3 210.3L442.3 257.7C442.3 294.5 411.1 325.5 375.5 325.5L268.7 325.5C239.5 325.5 215.3 350.5 215.3 379.8L215.3 481.6C215.3 510.6 240.5 527.6 268.7 535.9C302.5 545.8 335 547.6 375.5 535.9C402.4 528.1 428.9 512.4 428.9 481.6L428.9 440.9L322.2 440.9L322.2 427.3L482.4 427.3C513.5 427.3 525 405.6 535.8 373.1C547 339.6 546.5 307.4 535.8 264.5zM382.2 508.7C374.6 509.2 367.3 505.5 363.3 499C359.4 492.4 359.4 484.3 363.3 477.7C367.3 471.2 374.6 467.5 382.2 468C389.8 467.5 397.1 471.2 401.1 477.7C405 484.3 405 492.4 401.1 499C397.1 505.5 389.8 509.2 382.2 508.7zM263.8 312.1L370.6 312.1C400.3 312.1 424 287.6 424 257.8L424 155.9C424 126.9 399.6 105.2 370.6 100.3C334.8 94.4 295.9 94.7 263.8 100.4C218.6 108.4 210.4 125.1 210.4 156L210.4 196.7L317.3 196.7L317.3 210.3L170.3 210.3C139.2 210.3 112 229 103.5 264.5C93.7 305.2 93.3 330.6 103.5 373.1C111.1 404.7 129.2 427.3 160.3 427.3L197 427.3L197 378.5C197 343.2 227.5 312.1 263.8 312.1zM257.2 128.7C268.5 128.7 277.6 137.8 277.6 149.1C277.6 160.4 268.5 169.5 257.2 169.5C245.9 169.5 236.8 160.4 236.8 149.1C236.8 137.8 245.9 128.7 257.2 128.7z" />
-                                            </svg>
-                                            Python
-                                        </p>
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M544 269.8C529.2 279.6 512.2 287.5 494.5 293.8C447.5 310.6 385.8 320 320 320C254.2 320 192.4 310.5 145.5 293.8C127.9 287.5 110.8 279.6 96 269.8L96 352C96 396.2 196.3 432 320 432C443.7 432 544 396.2 544 352L544 269.8zM544 192L544 144C544 99.8 443.7 64 320 64C196.3 64 96 99.8 96 144L96 192C96 236.2 196.3 272 320 272C443.7 272 544 236.2 544 192zM494.5 453.8C447.6 470.5 385.9 480 320 480C254.1 480 192.4 470.5 145.5 453.8C127.9 447.5 110.8 439.6 96 429.8L96 496C96 540.2 196.3 576 320 576C443.7 576 544 540.2 544 496L544 429.8C529.2 439.6 512.2 447.5 494.5 453.8z" />
-                                            </svg>
-                                            SQLite
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <a href="https://github.com/KenyiGM/sistema_asistencias" target="_blank"
-                                        class="flex">
-                                        <span class="underline text-lg">Enlace a GitHub</span>
-                                        <i class="bi bi-box-arrow-up-right ml-2"></i>
-                                    </a>
-                                </div>
+                        <div class="grid lg:grid-cols-2 gap-8 w-[80%] mx-auto mt-5">
+                            <div class="bg-[#131A26] rounded-2xl p-8 border border-white/10" role="region"
+                                aria-labelledby="label-lenguajes">
+                                <p id="label-lenguajes" class="text-2xl lg:text-3xl text-[#9CA3AF] text-center mb-8">
+                                    <i class="bi bi-code-slash text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                    Lenguajes
+                                </p>
+                                <ul class="flex flex-wrap justify-center gap-4" aria-label="Lenguajes de programación">
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Python - Uso Frecuente">
+                                        Python<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="JavaScript - Uso Ocasional">
+                                        JavaScript<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="TypeScript - En Aprendizaje">
+                                        TypeScript<span class="sr-only">(En Aprendizaje)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Go - En Aprendizaje">
+                                        Go<span class="sr-only">(En Aprendizaje)</span></li>
+                                </ul>
                             </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#0F0F0F] border-cyan-400/70 border-2 p-6 rounded-lg h-100" id="problema-3">
-                                <h4 class="text-lg font-bold mb-4 text-cyan-300">Problema 3</h4>
-                                <div class="scroller-sky h-70">
-                                    <p class="text-[#EAEAEA]/90">
-                                        Un cine necesita un sistema para gestionar
-                                        la reserva de asientos en sus salas.
-                                    </p>
-                                    <ul class="list-disc marker:text-cyan-400 p-4">
-                                        <li>
-                                            <p class="mt-2 text-[#EAEAEA]/80">
-                                                Cada sala está organizada en filas y columnas, y cada asiento
-                                                puede
-                                                encontrarse en estado libre u ocupado.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                El sistema debe permitir que los clientes seleccionen un asiento
-                                                específico
-                                                para su reserva, evitando que se pueda asignar uno que ya esté
-                                                ocupado.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="mt-6 text-[#EAEAEA]/80">
-                                                Además, debe mostrar en todo momento el mapa actualizado de la
-                                                sala,
-                                                indicando claramente qué asientos están disponibles y cuáles ya han
-                                                sido
-                                                reservados, con el fin de optimizar la asignación y evitar errores
-                                                en la
-                                                venta de entradas.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="bg-[#131A26] rounded-2xl p-8 border border-white/10" role="region"
+                                aria-labelledby="label-frameworks">
+                                <p id="label-frameworks" class="text-2xl lg:text-3xl text-[#9CA3AF] text-center mb-8">
+                                    <i class="bi bi-boxes text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                    Frameworks
+                                </p>
+                                <ul class="flex flex-wrap justify-center gap-4" aria-label="Frameworks y librerías">
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="FastAPI - Uso Frecuente">
+                                        FastAPI<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="React - Uso Frecuente">
+                                        React<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Express - Uso Ocasional">
+                                        Express<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="NestJS - En Aprendizaje">
+                                        NestJS<span class="sr-only">(En Aprendizaje)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Gin - En Aprendizaje">
+                                        Gin<span class="sr-only">(En Aprendizaje)</span></li>
+                                </ul>
                             </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#0F0F0F] border-[#39FF14]/70 border-2 p-6 rounded-lg h-100" id="solucion-3">
-                                <h4 class="text-lg font-bold mb-4 text-[#39FF14]/80">Solucion 3</h4>
-                                <div>
-                                    <p>
-                                        Descripcion:
-                                    </p>
-                                    <p class="text-[#EAEAEA]/80 p-4">
-                                        Un sistema de gestion de asientos que permite a los clientes reservar
-                                        asientos en salas de cine.
-                                        Desarrollo en API REST (Proximante en web).
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        Tecnologias:
-                                    </p>
-                                    <div class="flex">
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M535.8 264.5C528.1 233.6 513.5 210.3 482.4 210.3L442.3 210.3L442.3 257.7C442.3 294.5 411.1 325.5 375.5 325.5L268.7 325.5C239.5 325.5 215.3 350.5 215.3 379.8L215.3 481.6C215.3 510.6 240.5 527.6 268.7 535.9C302.5 545.8 335 547.6 375.5 535.9C402.4 528.1 428.9 512.4 428.9 481.6L428.9 440.9L322.2 440.9L322.2 427.3L482.4 427.3C513.5 427.3 525 405.6 535.8 373.1C547 339.6 546.5 307.4 535.8 264.5zM382.2 508.7C374.6 509.2 367.3 505.5 363.3 499C359.4 492.4 359.4 484.3 363.3 477.7C367.3 471.2 374.6 467.5 382.2 468C389.8 467.5 397.1 471.2 401.1 477.7C405 484.3 405 492.4 401.1 499C397.1 505.5 389.8 509.2 382.2 508.7zM263.8 312.1L370.6 312.1C400.3 312.1 424 287.6 424 257.8L424 155.9C424 126.9 399.6 105.2 370.6 100.3C334.8 94.4 295.9 94.7 263.8 100.4C218.6 108.4 210.4 125.1 210.4 156L210.4 196.7L317.3 196.7L317.3 210.3L170.3 210.3C139.2 210.3 112 229 103.5 264.5C93.7 305.2 93.3 330.6 103.5 373.1C111.1 404.7 129.2 427.3 160.3 427.3L197 427.3L197 378.5C197 343.2 227.5 312.1 263.8 312.1zM257.2 128.7C268.5 128.7 277.6 137.8 277.6 149.1C277.6 160.4 268.5 169.5 257.2 169.5C245.9 169.5 236.8 160.4 236.8 149.1C236.8 137.8 245.9 128.7 257.2 128.7z" />
-                                            </svg>
-                                            Python
-                                        </p>
-                                        <p class="text-[#EAEAEA]/80 p-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                                                class="w-10 h-10 fill-[#39FF14]/80"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                <path
-                                                    d="M544 269.8C529.2 279.6 512.2 287.5 494.5 293.8C447.5 310.6 385.8 320 320 320C254.2 320 192.4 310.5 145.5 293.8C127.9 287.5 110.8 279.6 96 269.8L96 352C96 396.2 196.3 432 320 432C443.7 432 544 396.2 544 352L544 269.8zM544 192L544 144C544 99.8 443.7 64 320 64C196.3 64 96 99.8 96 144L96 192C96 236.2 196.3 272 320 272C443.7 272 544 236.2 544 192zM494.5 453.8C447.6 470.5 385.9 480 320 480C254.1 480 192.4 470.5 145.5 453.8C127.9 447.5 110.8 439.6 96 429.8L96 496C96 540.2 196.3 576 320 576C443.7 576 544 540.2 544 496L544 429.8C529.2 439.6 512.2 447.5 494.5 453.8z" />
-                                            </svg>
-                                            SQLite
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <a href="https://github.com/KenyiGM/sistema_asientos" target="_blank"
-                                        class="flex">
-                                        <span class="underline text-lg">Enlace a GitHub</span>
-                                        <i class="bi bi-box-arrow-up-right ml-2"></i>
-                                    </a>
-                                </div>
+                            <div class="bg-[#131A26] rounded-2xl p-8 border border-white/10" role="region"
+                                aria-labelledby="label-databases">
+                                <p id="label-databases" class="text-2xl lg:text-3xl text-[#9CA3AF] text-center mb-8">
+                                    <i class="bi bi-database text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                    Bases de datos
+                                </p>
+                                <ul class="flex flex-wrap justify-center gap-4" aria-label="Bases de datos">
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="PostgreSQL - Uso Ocasional">
+                                        PostgreSQL<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="SQLite - Uso Frecuente">
+                                        SQLite<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="MongoDB - En Aprendizaje">
+                                        MongoDB<span class="sr-only">(En Aprendizaje)</span></li>
+                                </ul>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-            </article>
+                            <div class="bg-[#131A26] rounded-2xl p-8 border border-white/10" role="region"
+                                aria-labelledby="label-herramientas">
+                                <p id="label-herramientas" class="text-2xl lg:text-3xl text-[#9CA3AF] text-center mb-8">
+                                    <i class="bi bi-wrench-adjustable text-2xl p-1 rounded-full" aria-hidden="true"></i>
+                                    Herramientas
+                                </p>
+                                <ul class="flex flex-wrap justify-center gap-4" aria-label="Herramientas de desarrollo">
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Linux - Uso Ocasional">
+                                        Linux<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Git - Uso Frecuente">
+                                        Git<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Docker - En Aprendizaje">
+                                        Docker<span class="sr-only">(En Aprendizaje)</span></li>
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Postman - Uso Ocasional">
+                                        Postman<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="VSCode - Uso Frecuente">
+                                        VSCode<span class="sr-only">(Uso Frecuente)</span></li>
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Bizagi - Uso Ocasional">
+                                        Bizagi<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Trello - Uso Ocasional">
+                                        Trello<span class="sr-only">(Uso Ocasional)</span></li>
+                                    <li class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]"
+                                        title="Antigravity IDE - Uso Frecuente">
+                                        Antigravity IDE<span class="sr-only">(Uso Frecuente)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos" aria-labelledby="titulo-proyectos">
+            <div class="relative w-[100%] mx-auto">
+                <article class="flex py-32 items-center justify-center">
+                    <div class="w-full p-10">
+                        <h2 id="titulo-proyectos" class="text-3xl lg:text-5xl mb-2 text-center">Mis Proyectos</h2>
+                        <hr class=" mx-auto my-4 border-t-2 border-[#00E5FF] mt-8 w-[68%]">
+                        <div class="flex flex-wrap justify-center gap-8 mt-10" role="list"
+                            aria-label="Leyenda de estados de proyectos">
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#00F5A0]" aria-hidden="true"></span>
+                                <p>Completado</p>
+                            </div>
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#FFC857]" aria-hidden="true"></span>
+                                <p>En Proceso</p>
+                            </div>
+                            <div class="flex items-center gap-x-5 mb-2" role="listitem">
+                                <span class="w-4 h-4 rounded-full bg-[#FF4D6D]" aria-hidden="true"></span>
+                                <p>No Iniciado</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap justify-center gap-8 mt-10" role="list"
+                            aria-label="Lista de proyectos">
+
+                            <article
+                                class="w-full justify-between md:w-1/2 lg:w-1/3 p-4 border border-white/10 rounded-2xl bg-[#131A26]"
+                                role="listitem" aria-label="Proyecto: API de Asistencias">
+                                <span class="text-lg text-[#00F5A0] flex items-center gap-x-2 mb-2"
+                                    aria-label="Estado: Completado (A mejorar)">
+                                    <i class="bi bi-check text-xl" aria-hidden="true"></i>
+                                    Completado (A mejorar)
+                                </span>
+                                <hr class="border-white/10 my-4" aria-hidden="true">
+                                <h3 class="text-2xl font-bold mb-4">API de Asistencias</h3>
+                                <p class="text-lg text-[#9CA3AF] mb-4">
+                                    API para el registro y seguimiento de la asistencia de colaboradores.
+                                    Incluye modulos para el control de horarios, asistencia, seguridad, organización,
+                                    etc.
+                                </p>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Tecnologías utilizadas:</p>
+                                <ul class="flex flex-wrap justify-center gap-4"
+                                    aria-label="Tecnologías del proyecto API de Asistencias">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        Python</li>
+                                    <li
+                                        class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        FastAPI</li>
+                                    <li
+                                        class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        SQLite</li>
+                                </ul>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Link del proyecto:</p>
+                                <ul class="flex flex-wrap justify-center gap-4">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        <a href="https://github.com/KenyiGM/sistema_asistencias" target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Ver código fuente de API de Asistencias en GitHub (abre en nueva pestaña)">GitHub</a>
+                                    </li>
+                                </ul>
+                            </article>
+
+                            <article
+                                class="w-full justify-between md:w-1/2 lg:w-1/3 p-4 border border-white/10 rounded-2xl bg-[#131A26]"
+                                role="listitem" aria-label="Proyecto: API de Gestión de Cine">
+                                <span class="text-lg text-[#FFC857] flex items-center gap-x-2 mb-2"
+                                    aria-label="Estado: En Proceso">
+                                    <i class="bi bi-gear" aria-hidden="true"></i>
+                                    En Proceso
+                                </span>
+                                <hr class="border-white/10 my-4" aria-hidden="true">
+                                <h3 class="text-2xl font-bold mb-4">API de Gestión de Cine</h3>
+                                <p class="text-lg text-[#9CA3AF] mb-4">
+                                    API para la gestión de cines. Incluye modulos para el control de funciones, salas,
+                                    películas, etc.
+                                </p>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Tecnologías utilizadas:</p>
+                                <ul class="flex flex-wrap justify-center gap-4"
+                                    aria-label="Tecnologías del proyecto API de Cine">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        Python</li>
+                                    <li
+                                        class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        FastAPI</li>
+                                    <li
+                                        class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        SQLite</li>
+                                </ul>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Link del proyecto:</p>
+                                <ul class="flex flex-wrap justify-center gap-4">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        <a href="https://github.com/KenyiGM/sistema_cine" target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Ver código fuente de API de Cine en GitHub (abre en nueva pestaña)">GitHub</a>
+                                    </li>
+                                </ul>
+                            </article>
+
+                            <article
+                                class="w-full justify-between md:w-1/2 lg:w-1/3 p-4 border border-white/10 rounded-2xl bg-[#131A26]"
+                                role="listitem" aria-label="Proyecto: API de Gestión de Pedidos">
+                                <span class="text-lg text-[#FF4D6D] flex items-center gap-x-2 mb-2"
+                                    aria-label="Estado: No iniciado">
+                                    <i class="bi bi-boxes" aria-hidden="true"></i>
+                                    No iniciado
+                                </span>
+                                <hr class="border-white/10 my-4" aria-hidden="true">
+                                <h3 class="text-2xl font-bold mb-4">API de Gestión de Pedidos</h3>
+                                <p class="text-lg text-[#9CA3AF] mb-4">
+                                    API para la gestión de pedidos. Incluye modulos para el control de pedidos,
+                                    productos, clientes, etc.
+                                </p>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Tecnologías utilizadas:</p>
+                                <ul class="flex flex-wrap justify-center gap-4"
+                                    aria-label="Tecnologías del proyecto API de Pedidos">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        TypeScript</li>
+                                    <li
+                                        class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        NestJS</li>
+                                    <li
+                                        class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        SQLite</li>
+                                </ul>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Link del proyecto:</p>
+                                <ul class="flex flex-wrap justify-center gap-4">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        <a href="https://github.com/KenyiGM/sistema_pedidos" target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Ver código fuente de API de Pedidos en GitHub (abre en nueva pestaña)">GitHub</a>
+                                    </li>
+                                </ul>
+                            </article>
+
+                            <article
+                                class="w-full justify-between md:w-1/2 lg:w-1/3 p-4 border border-white/10 rounded-2xl bg-[#131A26]"
+                                role="listitem" aria-label="Proyecto: API de Inventario">
+                                <span class="text-lg text-[#FF4D6D] flex items-center gap-x-2 mb-2"
+                                    aria-label="Estado: No iniciado">
+                                    <i class="bi bi-boxes" aria-hidden="true"></i>
+                                    No iniciado
+                                </span>
+                                <hr class="border-white/10 my-4" aria-hidden="true">
+                                <h3 class="text-2xl font-bold mb-4">API de Inventario</h3>
+                                <p class="text-lg text-[#9CA3AF] mb-4">API REST para la gestión de inventario.
+                                    Incluye
+                                    modulos para el control de productos, stock, proveedores, etc.</p>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Tecnologías utilizadas:</p>
+                                <ul class="flex flex-wrap justify-center gap-4"
+                                    aria-label="Tecnologías del proyecto API de Inventario">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        Python</li>
+                                    <li
+                                        class="hover:text-[#00E5FF] border border-[#00E5FF] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        FastAPI</li>
+                                    <li
+                                        class="hover:text-[#FF2E88] border border-[#FF2E88] rounded-full cursor-pointer px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        SQLite</li>
+                                </ul>
+                                <p class="text-lg text-white mt-5 mb-3 text-center">Link del proyecto:</p>
+                                <ul class="flex flex-wrap justify-center gap-4">
+                                    <li
+                                        class="hover:text-[#8B5CF6] border border-[#8B5CF6] rounded-full px-5 py-2.5 flex items-center justify-center gap-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_currentColor]">
+                                        <a href="https://github.com/KenyiGM/sistema_inventario" target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Ver código fuente de API de Inventario en GitHub (abre en nueva pestaña)">GitHub</a>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
     </main>
+
+    <footer role="contentinfo" aria-label="Pie de página">
+        <hr class=" mx-auto my-4 border-t-2 border-[#00E5FF] mt-8 w-[70%]">
+        <div class="flex items-center justify-center gap-x-3 text-white m-2">
+            <p>&copy; Hecho en 2026</p>
+            <a href="https://github.com/KenyiGM" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/kenyi-alexander-galindo-martinez/" target="_blank"
+                rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+
+    </footer>
+
 </body>
 
-
 </html>
-
-
 
 
 
